@@ -1,6 +1,6 @@
 <?php
 
-    require_once __DIR__."/../../config/DataBaseConfig.php";
+    require_once __DIR__."/../../resource/config/DataBaseConfig.php";
 
     class dataBase {
         private static $conexion = NULL;

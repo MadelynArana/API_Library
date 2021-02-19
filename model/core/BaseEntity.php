@@ -14,7 +14,7 @@
          *  - Los setter y getters se colocan en el modelo.
          */
         public function getAllBase(){      
-            $sql = "SELECT * FROM $this->table ";
+            $sql = "SELECT * FROM $this->table";
             $sql=$this->query($sql);
             return $sql->fetchAll( PDO::FETCH_OBJ ); 
         }
@@ -23,7 +23,7 @@
          * - Los setter y getters se colocan en el modelo.
          */
         public function getIdBase( $id ){      
-            $sql = "SELECT * FROM $this->table where codigo_persona = $id";
+            $sql = "SELECT * FROM $this->table where id = $id";
             $sql=$this->query($sql);
             return $sql->fetch( PDO::FETCH_OBJ );
         }  
@@ -36,7 +36,7 @@
         }
         /** Elimina un registro. */
         public function delete( $id ){
-            $sql = "DELETE FROM $this->table WHERE codigo_persona = $id";
+            $sql = "DELETE FROM $this->table WHERE id = $id";
             $sql=$this->query( $sql );
             return $sql ? 0: 1;
         }

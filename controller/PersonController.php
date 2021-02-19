@@ -2,7 +2,7 @@
 
     header('Content-Type: application/JSON');  
     require_once __DIR__."/../model/core/BaseEntity.php";
-    require_once __DIR__."/../model/Person.php";
+    require_once __DIR__."/../model/PersonModel.php";
 
     class PersonController {   
 
