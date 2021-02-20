@@ -1,5 +1,6 @@
 <?php
-    require '../model/core/BaseEntity.php';
+  require __DIR__.'/core/BaseEntity.php';
+
     class PersonModel extends BaseEntity{
 
         // Se coloca el nombre de la tabla de la BD.
@@ -7,7 +8,7 @@
 
         public $code = 0;
         public $name = null;
-        public $surname = null;
+        public $surname = '';
 
         public function __construct(){
             parent::__constructTable($this->table);
@@ -25,7 +26,7 @@
             return $this->surname;
         }
         /** Asigna código. */
-        public function setCode($code) {
+        public function setCode(int $code) {
             $this->code = $code;
         }
         /** Asigna descripción. */

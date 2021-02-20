@@ -14,31 +14,31 @@
          *  - Los setter y getters se colocan en el modelo.
          */
         public function getAllBase(){      
-            $sql = "SELECT * FROM $this->table";
-            $sql=$this->query($sql);
-            return $sql->fetchAll( PDO::FETCH_OBJ ); 
+            $sql = $this->query("SELECT * FROM $this->table");
+            $number = $sql->rowCount(); 
+            ( $number != 0 ) ? $data = $sql->fetchAll( PDO::FETCH_OBJ ): $data = 0;
+            return $data;
         }
         /**
          * Retorna un sólo arreglo.
          * - Los setter y getters se colocan en el modelo.
          */
-        public function getIdBase( $id ){      
-            $sql = "SELECT * FROM $this->table where id = $id";
-            $sql=$this->query($sql);
-            return $sql->fetch( PDO::FETCH_OBJ );
+        public function getIdBase( int $id ){      
+            $sql = $this->query("SELECT * FROM $this->table where id = $id");
+            $number = $sql->rowCount(); 
+            ( $number !=0 ) ? $data = $sql->fetch( PDO::FETCH_OBJ ): $data ='0';
+            return $data;
         }  
         /**
          * Inserta y actualiza un registro - En el modelo que heredara de esta clase se colocan los querys de insert y update.
          */
         public function insertUpdateBase( $sql ){
-            $sql=$this->query( $sql );
-            return $sql ? 0: 1;
+            return $this->query( $sql ) ? 0: 1;
         }
         /** Elimina un registro. */
-        public function delete( $id ){
-            $sql = "DELETE FROM $this->table WHERE id = $id";
-            $sql=$this->query( $sql );
-            return $sql ? 0: 1;
+        public function delete( int $id ){
+            $sql=$this->query("DELETE FROM $this->table WHERE id = $id");
+            return $sql ? 0 : 1;
         }
         /**
          * Función genérica para realizar el CRUD.

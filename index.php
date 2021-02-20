@@ -1,11 +1,11 @@
 <?php
 
-require_once __DIR__."/controller/PersonController.php";
+    require_once __DIR__."/controller/ApiController.php";
 
 
-$person = new PersonController();
+    $api = new ApiController();
 
-$person->API();
+    $api->API();
 
+?>    
 
-?>
