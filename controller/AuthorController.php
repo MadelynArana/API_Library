@@ -35,11 +35,11 @@
                         if(isset($_GET['id'])) // Actualiza un registro por medio del id enviado.
                         {
                             $code = $_GET['id'];     
-                            $author = $dataBase->getId($code); // Busca el registro en la BD.
+                            $author = $dataBase->getId( $code ); // Busca el registro en la BD.
                             
                             // Verfica si viene en blanco los valores de ser así se asigna los valores de la bd.                          
-                            $name   = $name == "" ? $author->getName() : $author->setName( $name );
-                            $surname   = $surname == "" ? $author->getSurname() : $author->setSurname( $surname );
+                            $name      = $name    =="" ? $author->getName() :    $author->setName( $name );
+                            $surname   = $surname =="" ? $author->getSurname() : $author->setSurname( $surname );
                             
                             $author->insertUpdate(); // Actualiza el registro.
                             $this->response(200,"Success","Record was updated.");  
@@ -47,8 +47,8 @@
                         else
                             {
                                 $dataBase->setCode(0); // Se settean los valores con los obtenidos del $jsonObject
-                                $dataBase->setName($name);
-                                $dataBase->setSurname($surname);
+                                $dataBase->setName( $name );
+                                $dataBase->setSurname( $surname );
                             
                                 $dataBase->insertUpdate(); // Guarda el nuevo registro.
                                 $this->response(200,"Success","New record added.");

@@ -30,7 +30,7 @@
                     $author->getAuthor($delete);
                 break; 
                 default: // Método no soportado.
-                $this->response(400,"error","¡Ups!, método no soportado seleccione un método válido. Ejemplo: PUT,GET, DELETE, POST");  
+                $this->response(400,"error","¡Ups!,Oops!, method not supported select a valid method. Example: PUT, GET, DELETE, POST.");  
                 break;
             }
 

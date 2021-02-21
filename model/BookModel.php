@@ -7,10 +7,11 @@
         public $point  = 0;
         public $type     = 0;
         public $authorCode = NULL;
-        
+         
         function __construct(){
             parent::__constructTable('book');
         }
+
 
         public function getPageCount(){
             return $this->pageCount;
@@ -79,7 +80,7 @@
         /** Inserta o actualiza un registro dependiendo si el parámetro id tiene el número 0 inserta de lo contrario actualiza */
         public function insertUpdate()
         {        
-            $sql = "CALL ps_book_isert_update({$this->code},'$this->name',{$this->pageCount},{$this->point},{$this->authorCode},{$this->type})" ; // Consulta BD.  
+            $sql = "CALL ps_book_isert_update({$this->code},'{$this->name}',{$this->pageCount},{$this->point},{$this->authorCode},{$this->type})" ; // Consulta BD.  
             return $this->insertUpdateBase($sql); // Ingresa o actualiza un registro.  
         }
     }// End class
