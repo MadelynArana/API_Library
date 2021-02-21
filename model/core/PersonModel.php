@@ -1,17 +1,17 @@
 <?php
-  require __DIR__.'/core/BaseEntity.php';
+    require 'BaseEntity.php';
 
-    class PersonModel extends BaseEntity{
-
+    class PersonModel extends BaseEntity
+    {
         // Se coloca el nombre de la tabla de la BD.
         private $table ='';
 
         public $code = 0;
-        public $name = null;
-        public $surname = '';
+        public $name = NULL;
+        public $surname = NULL;
 
         public function __construct(){
-            parent::__constructTable($this->table);
+            parent::__constructTable( $this->table );
         }
         /**Retorna código. */
         public function getCode() {
@@ -26,15 +26,15 @@
             return $this->surname;
         }
         /** Asigna código. */
-        public function setCode(int $code) {
+        public function setCode( int $code ) {
             $this->code = $code;
         }
         /** Asigna descripción. */
-        public function setSurname($surname){
+        public function setSurname( $surname ){
             $this->surname = $surname;
         }
         /** Asigna nombre. */
-        public function setName($name){
+        public function setName( $name ){
             $this->name=$name;
         }
 

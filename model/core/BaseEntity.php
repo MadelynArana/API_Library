@@ -14,7 +14,7 @@
          *  - Los setter y getters se colocan en el modelo.
          */
         public function getAllBase(){      
-            $sql = $this->query("SELECT * FROM $this->table");
+            $sql = $this->query("SELECT * FROM view_{$this->table}");
             $number = $sql->rowCount(); 
             ( $number != 0 ) ? $data = $sql->fetchAll( PDO::FETCH_OBJ ): $data = 0;
             return $data;
@@ -24,7 +24,7 @@
          * - Los setter y getters se colocan en el modelo.
          */
         public function getIdBase( int $id ){      
-            $sql = $this->query("SELECT * FROM $this->table where id = $id");
+            $sql = $this->query("CALL ps_{$this->table}_id( $id )");
             $number = $sql->rowCount(); 
             ( $number !=0 ) ? $data = $sql->fetch( PDO::FETCH_OBJ ): $data ='0';
             return $data;
@@ -37,7 +37,7 @@
         }
         /** Elimina un registro. */
         public function delete( int $id ){
-            $sql=$this->query("DELETE FROM $this->table WHERE id = $id");
+            $sql=$this->query("DELETE FROM tb_{$this->table} WHERE id = $id");
             return $sql ? 0 : 1;
         }
         /**
@@ -46,9 +46,9 @@
         */ 
         public function query( $sql ){
             // Conexión a la BD.
-            $conectar = dataBase::conexion();
+            $conexion = dataBase::conexion();
             // Prepara la consulta.
-            $sql = $conectar->prepare( $sql );
+            $sql = $conexion->prepare( $sql );
             // Ejecuta y retorna la consulta.
             $sql->execute();
             return $sql ;   
