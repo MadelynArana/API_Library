@@ -67,10 +67,7 @@
                         $this->response(400,"error","non-existing element");  
                     break;
                 }
-            }else
-                {
-                    $this->response(400,"error","non-existing element");  
-                }
+            }
         }
     }// End class
 ?>

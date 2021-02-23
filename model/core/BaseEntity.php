@@ -1,42 +1,35 @@
 <?php
     require_once 'database.php';
 
-    class BaseEntity {
-        // En parametro $table : se asigna el nombre de la tabla de la bd.
+    class BaseEntity 
+    {
+        // Esta propiedad hace referencia al procedimiento almacenado que será utilizado en cada modelo.
         private $table = '';
-
         // El nombre de la tabla será cargado dentro del constructor.
-        public function __constructTable( $table ) {
+        public function __constructTable( $table ) 
+        {
             $this->table = $table;
         }
         /**
-         * Retorna todos los registros de la tabla.
-         *  - Los setter y getters se colocan en el modelo.
+         * Retorna registros
+         * - Si en el parámetro $id se coloca un número retorna un registro.
+         * - Si en el parámetro $id se coloca un 0 o vacío retorna todos los registros.
          */
-        public function getAllBase(){      
-            $sql = $this->query("SELECT * FROM view_{$this->table}");
-            $number = $sql->rowCount(); 
-            ( $number != 0 ) ? $data = $sql->fetchAll( PDO::FETCH_OBJ ): $data = 0;
-            return $data;
-        }
-        /**
-         * Retorna un sólo arreglo.
-         * - Los setter y getters se colocan en el modelo.
-         */
-        public function getIdBase( int $id ){      
-            $sql = $this->query("CALL ps_{$this->table}_id( $id )");
-            $number = $sql->rowCount(); 
-            ( $number !=0 ) ? $data = $sql->fetch( PDO::FETCH_OBJ ): $data ='0';
-            return $data;
-        }  
-        /**
-         * Inserta y actualiza un registro - En el modelo que heredara de esta clase se colocan los querys de insert y update.
-         */
-        public function insertUpdateBase( $sql ){
-            return $this->query( $sql ) ? 0: 1;
+        protected function getAllBase( int $id )
+        {      
+            $sql = $this->query("CALL ps_{$this->table}_get( $id )"); // Procedimiento almacenado para buscar registros.
+            $number = $sql->rowCount(); // Cuenta el número de registros.
+            if( $number != 0 ){       // Devuelve un registro        // Devuelve varios registros.              
+                ( $id!=0 ) ?  $data= $sql->fetch( PDO::FETCH_OBJ ) : $data= $sql->fetchAll( PDO::FETCH_OBJ );
+                return $data; 
+            }
+            else{
+                return 0;
+            }
         }
         /** Elimina un registro. */
-        public function delete( int $id ){
+        public function delete( int $id )
+        {
             $sql=$this->query("DELETE FROM tb_{$this->table} WHERE id = $id");
             return $sql ? 0 : 1;
         }
@@ -44,13 +37,11 @@
          * Función genérica para realizar el CRUD.
          * - Pide como parámetro la consulta de la base de datos. 
         */ 
-        public function query( $sql ){
-            // Conexión a la BD.
-            $conexion = dataBase::conexion();
-            // Prepara la consulta.
-            $sql = $conexion->prepare( $sql );
-            // Ejecuta y retorna la consulta.
-            $sql->execute();
+        protected function query( $sql )
+        {   
+            $conexion = dataBase::conexion();  // Conexión a la BD.
+            $sql = $conexion->prepare( $sql ); // Prepara la consulta.
+            $sql->execute(); // Ejecuta y retorna la consulta.
             return $sql ;   
         }
     }// End class

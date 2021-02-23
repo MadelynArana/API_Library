@@ -1,25 +1,45 @@
-# API_Library
+# API Librería
+
+Para este proyecto se utilizaron los siguientes  métodos de petición HTTP.
+
+|  Método HTTP|Descripción  |
+|--|--|
+| GET |Recupera una lista de registros.|
+| GET/1|Recupera un registros con ID 1.|
+| POST| Crea un nuevo registro.|
+| PUT/1|  Actualiza un registro con ID 1.|
+| DELETE/1|Elimina un registro con ID 1.|
 
 
-If you are facing this issues and there are multiple files in your local branch which needs to be pulled first into your MASTER branch, then you must run '$ git pull --all' first.
+# Probar API
+Para probar el API puede usar [Insomnia](https://insomnia.rest/download/), y configurar las  peticiones dependiendo de la ruta del proyecto.
 
-Then, check the status by running "$ git status" on top of it, and if you see any modified files, then you need to 'add' and 'commit' those files first.
 
-Once its done, you can then PUSH the changes to your MASTER branch and this will sync-up your MASTER branch with your local branch.
+## Libro
 
-If you are facing this issues and there are multiple files in your local branch which needs to be pulled first into your MASTER branch, then you must run '$ git pull --all' first.
+**1.**  Obtener libros: **GET :  http://localhost/API_Library/book**
+**2.**  Obtener libros por ID : **GET :  http://localhost/API_Library/book/100**
+**3.**  Nuevo libro : **POST:  http://localhost/API_Library/book**
+> En el cuerpo del json colocar la siguiente estructura.
+```json
+{
+	"name"        :  "New book",
+	"pages"       :  250,
+	"point"       :  99,
+	"authorCode"  :  15,
+	"typeCode"    :  18
+}
+```
+**4.**  Actualizar libro: **PUT    http://localhost/API_Library/book/100**
+> En el cuerpo del json colocar la siguiente estructura.
 
-Then, check the status by running "$ git status" on top of it, and if you see any modified files, then you need to 'add' and 'commit' those files first.
-
-Once its done, you can then PUSH the changes to your MASTER branch and this will sync-up your MASTER branch with your local branch.
-
-If you are facing this issues and there are multiple files in your local branch which needs to be pulled first into your MASTER branch, then you must run '$ git pull --all' first.
-
-Then, check the status by running "$ git status" on top of it, and if you see any modified files, then you need to 'add' and 'commit' those files first.
-
-Once its done, you can then PUSH the changes to your MASTER branch and this will sync-up your MASTER branch with your local branch.
-If you are facing this issues and there are multiple files in your local branch which needs to be pulled first into your MASTER branch, then you must run '$ git pull --all' first.
-
-Then, check the status by running "$ git status" on top of it, and if you see any modified files, then you need to 'add' and 'commit' those files first.
-
-Once its done, you can then PUSH the changes to your MASTER branch and this will sync-up your MASTER branch with your local branch.
+```json
+{
+	"name"        :  "Update book",
+	"pages"       :  250,
+	"point"       :  99,
+	"authorCode"  :  15,
+	"typeCode"    :  18
+}
+```
+**5.**  Eliminar libro: **DELETE :  http://localhost/API_Library/book/100**
