@@ -1,3 +1,4 @@
+
 # API Librería
 
 Para este proyecto se utilizaron los siguientes  métodos de petición HTTP.
@@ -43,3 +44,34 @@ Para probar el API puede usar [Insomnia](https://insomnia.rest/download/), y con
 }
 ```
 **5.**  Eliminar libro: **DELETE :  http://localhost/API_Library/book/100**
+
+
+
+## Autor
+
+**1.**  Obtener autores: **GET :  http://localhost/API_Library/book**
+**2.**  Obtener autor por ID : **GET :  http://localhost/API_Library/author/100**
+**3.**  Nuevo author: **POST:  http://localhost/API_Library/author**
+> En el cuerpo del json colocar la siguiente estructura.
+```json
+{
+	"name"        :  "New book",
+	"pages"       :  250,
+	"point"       :  99,
+	"authorCode"  :  15,
+	"typeCode"    :  18
+}
+```
+**4.**  Actualizar author: **PUT    http://localhost/API_Library/author/100**
+> En el cuerpo del json colocar la siguiente estructura.
+
+```json
+{
+	"name"        :  "Update book",
+	"pages"       :  250,
+	"point"       :  99,
+	"authorCode"  :  15,
+	"typeCode"    :  18
+}
+```
+**5.**  Eliminar author: **DELETE :  http://localhost/API_Library/author/100**
