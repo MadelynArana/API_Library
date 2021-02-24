@@ -4,7 +4,7 @@
     class PersonModel extends BaseEntity
     {
         // Se coloca el nombre del procedimiento almacenado que será utilizado en cada modelo.
-        public  $table   ='',
+        public $table   ='',
                 $code    = 0,
                 $name    = NULL,
                 $surname = NULL;
