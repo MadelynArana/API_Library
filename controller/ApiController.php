@@ -14,31 +14,27 @@
 
             $author = new AuthorController(); // Controlador autor
             $book   = new BookController();
-           
-            $get='get';
-            $save="save";
-            $delete='delete';
-
+        
             switch ( $method )
             { 
                 case 'GET': // Consulta.
-                        $author->getAuthor($get);
-                        $book->getBook($get);
+                        $author->getAuthor("get");
+                        $book->getBook("get");
                     break;     
 
                 case 'POST': // Inserta.
-                        $author->getAuthor($save);
-                        $book->getBook($save);
+                        $author->getAuthor("save");
+                        $book->getBook("save");
                     break;
 
                 case 'PUT': // Actualiza.
-                        $author->getAuthor($save);
-                        $book->getBook($save);
+                        $author->getAuthor("save");
+                        $book->getBook("save");
                     break;        
             
                 case 'DELETE': // Elimina.
-                        $author->getAuthor($delete);
-                        $book->getBook($delete);
+                        $author->getAuthor("delete");
+                        $book->getBook("delete");
                     break; 
 
                 default: // Método no soportado.

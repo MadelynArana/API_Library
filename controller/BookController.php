@@ -5,21 +5,21 @@
 
     class BookController extends Message
     {
-        public function getBook( $option)
+        public function getBook( $option )
         {
             if($_GET['action']=='book')
             {
                 $database = new BookModel(); // Base de datos
 
-                switch($option)
+                switch( $option )
                 {
                     case 'get': // Válida que exista un id en el $_GET['id']. Si existe busca por ID de lo contrario muestra todos los registros.                  
                             if(isset($_GET['id'])) {
                                 $response = $database->getData($_GET['id']);
-                                ( $response != 0 ) ? $this->messageJson($response):  $this->messageJson("Record does not exist.");
+                                ( $response != 0 ) ? $this->messageJson( $response ):  $this->messageJson("Record does not exist.");
                             }else{
                                 $response = $database->getData(0);             
-                                ( $response != 0 ) ? $this->messageJson($response):  $this->messageJson("There are no records.");
+                                ( $response != 0 ) ? $this->messageJson( $response ):  $this->messageJson("There are no records.");
                             }
                         break;
 
