@@ -19,7 +19,9 @@ Para probar el API puede usar [Insomnia](https://insomnia.rest/download/), y con
 ## Libro
 
 **1.**  Obtener libros: **GET :  http://localhost/API_Library/book**
+
 **2.**  Obtener libros por ID : **GET :  http://localhost/API_Library/book/100**
+
 **3.**  Nuevo libro : **POST:  http://localhost/API_Library/book**
 > En el cuerpo del json colocar la siguiente estructura.
 ```json
@@ -50,7 +52,9 @@ Para probar el API puede usar [Insomnia](https://insomnia.rest/download/), y con
 ## Autor
 
 **1.**  Obtener autores: **GET :  http://localhost/API_Library/author**
+
 **2.**  Obtener autor por ID : **GET :  http://localhost/API_Library/author/100**
+
 **3.**  Nuevo author: **POST:  http://localhost/API_Library/author**
 > En el cuerpo del json colocar la siguiente estructura.
 ```json
