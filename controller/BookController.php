@@ -33,7 +33,7 @@
                             $typeCode  = $jsonObj->typeCode;
 
                             if(isset($_GET['id'])){
-                                $database->update(226, $name , $pages , $point , $authorCode , $typeCode ); // Actualiza un registro.                  
+                                $database->update($_GET['id'], $name , $pages , $point , $authorCode , $typeCode ); // Actualiza un registro.                  
                                 $this->response(200,"Success","Record was updated.");                         
                             }else{
                                 $database->insert(0, $name , $pages , $point , $authorCode , $typeCode ); // Guarda un nuevo registro.
@@ -54,8 +54,6 @@
                         $this->response(400,"error","default book non-existing element");  
                         break;
                 }
-            }else{
-                $this->response(400,"error","book accion non-existing element");  
             }
         }
     } // End class 
