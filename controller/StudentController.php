@@ -1,15 +1,15 @@
 <?php
 
-    require_once __DIR__."/../model/AuthorModel.php";
+    require_once __DIR__."/../model/StudentModel.php";
     require_once __DIR__."/../model/core/response/Message.php";
 
-    class AuthorController extends Message
+    class StudentController extends Message
     {
-        public function getAuthor( $option )
+        public function getStudent( $option )
         {
-            if($_GET['action']=='author')
+            if($_GET['action']=='student')
             {
-                $database = new AuthorModel(); // Base de datos
+                $database = new StudentModel(); // Base de datos
 
                 switch( $option )
                 {
@@ -26,14 +26,18 @@
                     case 'save': // Guarda o actualiza un nuevo registro.
                             // Se obtienen los datos enviados en el cuerpo de la petición.  
                             $jsonObj = json_decode( file_get_contents('php://input') ); 
-                            $name      = $jsonObj->name;
-                            $surname   = $jsonObj->surname;
+                            $name     = $jsonObj->name;
+                            $gender   = $jsonObj->gender;
+                            $class    = $jsonObj->class;
+                            $point    = $jsonObj->point;
+                            $surname  = $jsonObj->surname;
+                            $birthday = $jsonObj->birthday;
 
                             if(isset($_GET['id'])){
-                                $database->update($_GET['id'], $name , $surname ); // Actualiza un registro.                  
+                                $database->update( $_GET['id'], $name, $surname, $birthday, $gender, $class, $point ); // Actualiza un registro.                  
                                 $this->response(200,"Success","Record was updated.");                         
                             }else{
-                                $database->insert(0, $name , $surname ); // Guarda un nuevo registro.
+                                $database->insert( 0 , $name, $surname, $birthday, $gender, $class, $point ); // Guarda un nuevo registro.
                                 $this->response(200,"Success","New record added.");
                             }
                         break;

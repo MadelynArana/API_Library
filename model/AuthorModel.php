@@ -24,7 +24,11 @@
          * */
         protected function getObjects( $data )
         {
-            $element = ['code'=>$data->getCode(),'name'=>$data->getName(),'surname'=>$data->getSurname()]; 
+            $element = [
+                'code'    => $data->getCode(),
+                'name'    => $data->getName(),
+                'surname' => $data->getSurname()
+            ]; 
             return $element;
         }
         /**
@@ -57,8 +61,8 @@
             $searchAuthor = $this->setArray( $code , $author ); // Busca el registro por id.
             /* Verifica si las propiedades vienen vacías de ser así retorna el valor que se encuentra en la base de datos, caso contrario 
             *  actualiza el nuevo valor. */                       
-            $name    = $name==""    ? $searchAuthor->getName()    : $searchAuthor->setName( $name );
-            $surname = $surname=="" ? $searchAuthor->getSurname() : $searchAuthor->setSurname( $surname );
+            $name    = $name    =="" ? $searchAuthor->getName()    : $searchAuthor->setName( $name );
+            $surname = $surname =="" ? $searchAuthor->getSurname() : $searchAuthor->setSurname( $surname );
             $searchAuthor->insertUpdate();
         }
         /** 

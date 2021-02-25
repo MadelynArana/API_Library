@@ -49,7 +49,14 @@
          * */
         protected function getObjects( $data )
         {
-            $element = ['code'=>$data->getCode(),'name'=>$data->getName(),'pages'=>$data->getPageCount(),'point'=>$data->getPoint(),'authorName'=>$data->getAuthorName(),'typeName'=>$data->getTypeName()]; 
+            $element = [
+                'code'       => $data->getCode(),
+                'name'       => $data->getName(),
+                'pages'      => $data->getPageCount(),
+                'point'      => $data->getPoint(),
+                'authorName' => $data->getAuthorName(),
+                'typeName'   => $data->getTypeName()
+            ]; 
             return $element;
         }
         /**
@@ -82,11 +89,11 @@
             $searchBook = $this->setArray( $code , $book ); // Busca el registro por id.
             /* Verifica si las propiedades vienen vacías de ser así retorna el valor que se encuentra en la base de datos, caso contrario 
             *  actualiza el nuevo valor. */                       
-            $name       = $name==""       ?  $searchBook->getName()       : $searchBook->setName      ( $name );
-            $pages      = $pages==""      ?  $searchBook->getPageCount()  : $searchBook->setPageCount ( $pages );
-            $point      = $point==""      ?  $searchBook->getPoint()      : $searchBook->setPoint     ( $point );
-            $authorCode = $authorCode=="" ?  $searchBook->getAuthorCode() : $searchBook->setAuthorCode( $authorCode );
-            $typeCode   = $typeCode==""   ?  $searchBook->getTypeCode  () : $searchBook->setTypeCode  ( $typeCode );   
+            $name       = $name       =="" ? $searchBook->getName()       : $searchBook->setName      ( $name );
+            $pages      = $pages      =="" ? $searchBook->getPageCount()  : $searchBook->setPageCount ( $pages );
+            $point      = $point      =="" ? $searchBook->getPoint()      : $searchBook->setPoint     ( $point );
+            $authorCode = $authorCode =="" ? $searchBook->getAuthorCode() : $searchBook->setAuthorCode( $authorCode );
+            $typeCode   = $typeCode   =="" ? $searchBook->getTypeCode  () : $searchBook->setTypeCode  ( $typeCode );   
             $searchBook->insertUpdate();
         }
         /** 

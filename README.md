@@ -73,3 +73,16 @@ Para probar el API puede usar [Insomnia](https://insomnia.rest/download/), y con
 	}
 ```
 **5.**  Eliminar author: **DELETE :  http://localhost/API_Library/author/100**
+
+
+Estudiante
+
+{
+	"name": "nombre",
+	"surname": "apellido",
+	"birthday": "2020-01-01",
+	"gender": "M",
+	"point": 200,
+	"class": "AB"
+	
+}
