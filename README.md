@@ -94,6 +94,10 @@ Estudiante
 
 Borrow
 localhost/API_Library/borrow/6376
+localhost/API_Library/borrow
+
+
+
 
 
     {
