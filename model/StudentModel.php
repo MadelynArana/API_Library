@@ -30,7 +30,7 @@
          */
         protected function setDatabaseProperties( $class , $row )
         {  
-            $class->setCode    ( $row->code             );
+            $class->setCode    ( $row->id               );
             $class->setName    ( $row->student_name     );
             $class->setPoint   ( $row->student_point    );
             $class->setClass   ( $row->student_class    );
@@ -61,8 +61,8 @@
          */ 
         public function getData( $id )
         {  
-            $book = new StudentModel();
-            return $this->getArray( $id , $book );
+            $Student = new StudentModel();
+            return $this->getArray( $id , $Student );
         }
         /** 
          * Inserta o actualiza un registro 

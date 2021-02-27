@@ -57,7 +57,27 @@
             }else{
                 return 0; // Devuelve 0 al no encontrar registros.
             }
-        }   
+        }
+        /**
+         * Filtra por rango de fechas */ 
+        protected function setDate($class, $query)
+        {
+            $sql = $this->query($query);
+            $number = $sql->rowCount(); // Cuenta el número de registros.
+            
+            if( $number != 0 ){ // Válida que exista al menos un registro.             
+                $dataBase =  $sql->fetchAll( PDO::FETCH_OBJ ); // Recorre todos los registros.
+                foreach( $dataBase as $row ){
+                    $object =new $class;// Instancia de una clase 
+                    $this->setDatabaseProperties( $object , $row ); 
+                    $array[] = $object; // Se asignan los objetos dentro del arreglo.
+                    }
+                return $array; // Settea todos los registros.
+            }
+            else{
+                return 0;
+            }
+        }  
         /**
         * Get array
             * - Parámetro $class, hace referencia la instancia de una clase.
