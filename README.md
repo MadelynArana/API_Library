@@ -108,10 +108,5 @@ localhost/API_Library/borrow
     }
 
 
-Date
-    {
+http://localhost/API_Library/borrow/2018-01-01/2020-08-01
 
-
-      "initialDate": "2015-01-01",
-      "finalDate": "2016-01-01"
-    }

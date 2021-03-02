@@ -14,30 +14,17 @@
                 switch( $option )
                 {
                     case 'get': // Válida que exista un id en el $_GET['id']. Si existe busca por ID de lo contrario muestra todos los registros.                  
-
-                        $jsonObj = json_decode( file_get_contents('php://input') ); 
-                        $initialDate = $jsonObj->initialDate;
-                        $finalDate    = $jsonObj->finalDate;
-                        $response = $database->getDateTakenFilter($initialDate,$finalDate);
-                        $this->messageJson($response);
-                        }
-                     
-                        // if(isset($_GET['id'])) {
-                            //     $response = $database->getData($_GET['id']);
-                            //     ( $response != 0 ) ? $this->messageJson( $response ):  $this->messageJson("Record does not exist.");
-                            // }else if(isset($_GET['filterBrought'])){
-                            //     $jsonObj = json_decode( file_get_contents('php://input') ); 
-                            //     $dateInitial = $jsonObj->dateInitial;
-                            //     $dateFinal = $jsonObj->dateFinal;
-                            //     $response = $database->getDateBrought($dateInitial,$dateFinal);
-                            //     $this->messageJson($response);
-                            // }
-                            
-                            
-                            // else{
-                            //     $response = $database->getData(0);             
-                            //     ( $response != 0 ) ? $this->messageJson( $response ):  $this->messageJson("There are no records.");
-                            // }
+                            if(isset($_GET['id'])) {
+                                $response = $database->getData($_GET['id']);
+                                ( $response != 0 ) ? $this->messageJson( $response ):  $this->messageJson("Record does not exist.");
+                            }else if(isset($_GET['fecha_inicial']) && $_GET['fecha_final']){                                                      
+                                $response = $database->getDateBroughtFilter($_GET['fecha_inicial'],$_GET['fecha_final']);
+                                ( $response != 0 ) ? $this->messageJson( $response ):  $this->messageJson("There are no records.");
+                            }                            
+                            else{
+                                $response = $database->getData(0);             
+                                ( $response != 0 ) ? $this->messageJson( $response ):  $this->messageJson("There are no records.");
+                            }
                         break;
 
                     case 'save': // Guarda o actualiza un nuevo registro.

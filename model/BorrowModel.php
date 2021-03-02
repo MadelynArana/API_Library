@@ -79,13 +79,6 @@
             $data =$this->setDate( $borrow , $sql );
             return $data; 
         }    
-         /** Filtra entre dos fecha cuando el libro fue prestado.  */
-        public function getDateTakenFilter($initialDate, $finalDate){
-            $borrow = new BorrowModel();
-            $sql="CALL ps_borrow_date_taken('{$initialDate}','{$finalDate}')";
-            $data =$this->setDate( $borrow , $sql );
-            return $data; 
-        }    
         /** 
          * Actualiza un registro existente
          *  - Si algún campo en el cuerpo del json viene vacío, realiza una búsqueda y retorna el valor almacenado en la base de datos.
