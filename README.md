@@ -1,123 +1,239 @@
-# API Librería
+# API Librery 📘
 
-Para este proyecto se utilizaron los siguientes métodos de petición HTTP.
+The following HTTP request methods were used for this project.
 
 | Método HTTP | Descripción                      |
 | ----------- | -------------------------------- |
-| GET         | Recupera una lista de registros. |
-| GET/1       | Recupera un registros con ID 1.  |
-| POST        | Crea un nuevo registro.          |
-| PUT/1       | Actualiza un registro con ID 1.  |
-| DELETE/1    | Elimina un registro con ID 1.    |
+| GET         | Gets all records. |
+| GET/1       | Get a record ID 1.  |
+| POST        | Add a new record.          |
+| PUT/1       | Update a record with ID 1.  |
+| DELETE/1    | Delete a record with ID 1.    |
 
-# Probar API
 
-Para probar el API puede usar [Insomnia](https://insomnia.rest/download/), y configurar las peticiones dependiendo de la ruta del proyecto.
+# Probar API 💜
 
-## Libro
+To test the API you can use [Insomnia](https://insomnia.rest/download/), and configure the requests depending on the project path.
 
-**1.** Obtener libros: **GET : http://localhost/API_Library/book**
+## Book 🌜 
 
-**2.** Obtener libros por ID : **GET : http://localhost/API_Library/book/100**
+**1.** Get students: **GET: http://localhost/API_Library/book**
 
-**3.** Nuevo libro : **POST: http://localhost/API_Library/book**
+![Alt text](resource/image/bookGetAll.png "GET")
 
-> En el cuerpo del json colocar la siguiente estructura.
+**2.** Get book by id: **GET : http://localhost/API_Library/book/100**
 
-```json
-{
-  "name": "New book",
-  "pages": 250,
-  "point": 99,
-  "authorCode": 15,
-  "typeCode": 18
-}
-```
+![Alt text](resource/image/bookId.png "GET")
 
-**4.** Actualizar libro: **PUT http://localhost/API_Library/book/100**
+**3.** New book: **POST: http://localhost/API_Library/book**
 
-> En el cuerpo del json colocar la siguiente estructura.
+> In the body of the json put the following structure.
 
 ```json
 {
-  "name": "Update book",
-  "pages": 250,
-  "point": 99,
-  "authorCode": 15,
-  "typeCode": 18
+  "name": "add book",
+  "pages": 1050,
+  "point": 100,
+  "authorCode": 11,
+  "typeCode": 12
 }
-```
+ ```
 
-**5.** Eliminar libro: **DELETE : http://localhost/API_Library/book/100**
+![Alt text](resource/image/bookPost.png "POST")
 
-## Autor
+**4.** Update book: **PUT http://localhost/API_Library/book/100**
 
-**1.** Obtener autores: **GET : http://localhost/API_Library/author**
-
-**2.** Obtener autor por ID : **GET : http://localhost/API_Library/author/100**
-
-**3.** Nuevo author: **POST: http://localhost/API_Library/author**
-
-> En el cuerpo del json colocar la siguiente estructura.
+> In the body of the json put the following structure.
 
 ```json
 {
-  "name": "primer nombre",
-  "surname": "primer apellido"
+  "name": "update book",
+  "pages": 1050,
+  "point": 100,
+  "authorCode": 11,
+  "typeCode": 12
 }
-```
+ ```
+![Alt text](resource/image/bookPut.png "put")
 
-**4.** Actualizar author: **PUT http://localhost/API_Library/author/100**
+**5.** Delete book: **DELETE : http://localhost/API_Library/book/100**
 
-> En el cuerpo del json colocar la siguiente estructura.
+![Alt text](resource/image/bookDelete.png "delete")
+
+
+## Author 	💀 
+
+**1.** Get students: **GET: http://localhost/API_Library/author**
+
+![Alt text](resource/image/authorGetAll.png "GET")
+
+**2.** Get author by id: **GET : http://localhost/API_Library/author/100**
+
+![Alt text](resource/image/authorId.png "GET")
+
+**3.** New author: **POST: http://localhost/API_Library/author**
+> In the body of the json put the following structure.
 
 ```json
 {
-  "name": "actualizar nombre",
-  "surname": "actualizar apellido"
+  "name": "add name",
+  "surname": "add surname"
 }
-```
+ ```
+ 
+![Alt text](resource/image/authorPost.png "POST")
 
-**5.** Eliminar author: **DELETE : http://localhost/API_Library/author/100**
+**4.** Update author: **PUT http://localhost/API_Library/author/100**
 
-Estudiante
+> In the body of the json put the following structure.
 
+```json
 {
-"name": "nombre",
-"surname": "apellido",
-"birthday": "2020-01-01",
-"gender": "M",
-"point": 200,
-"class": "AB"
+  "name": "update name",
+  "surname": "update surname"
 }
+ ```
+ 
+![Alt text](resource/image/authorPut.png "put")
+
+**5.** Delete author: **DELETE : http://localhost/API_Library/author/100**
+
+![Alt text](resource/image/authorDelete.png "delete")
+
+## Student 🌜 
+
+**1.** Get students: **GET: http://localhost/API_Library/student**
+
+![Alt text](resource/image/studentGetAll.png "GET")
+
+**2.** Get student by id: **GET : http://localhost/API_Library/student/100**
+
+![Alt text](resource/image/studentId.png "GET")
+
+**3.** New student: **POST: http://localhost/API_Library/student**
+
+> In the body of the json put the following structure.
+
+```json
+   {
+      "name": "name",
+      "surname": "surname",
+      "birthday": "0000-00-00",
+      "gender": "F",
+      "point": 000,
+      "class": "class"
+    }
+ ```
+ 
+![Alt text](resource/image/studentPost.png "POST")
+
+**4.** Update student: **PUT http://localhost/API_Library/student/100**
+
+> In the body of the json put the following structure.
+
+```json
+   {
+      "name": "name",
+      "surname": "surname",
+      "birthday": "0000-00-00",
+      "gender": "F",
+      "point": 000,
+      "class": "class"
+    }
+ ```
+ 
+![Alt text](resource/image/studentPut.png "put")
+
+**5.** Delete student: **DELETE : http://localhost/API_Library/student/100**
+
+![Alt text](resource/image/studentDelete.png "delete")
 
 
-Borrow
-localhost/API_Library/borrow/6376
-localhost/API_Library/borrow
+## Borrow 	💀 
 
+**1.** Get borrows: **GET: http://localhost/API_Library/borrow**
 
+![Alt text](resource/image/borrowGetAll.png "GET")
 
+**2.** Get borrow by id: **GET : http://localhost/API_Library/borrow/100**
 
+![Alt text](resource/image/borrowId.png "GET")
 
+**3.** Get borrow by dates: **GET : http://localhost/API_Library/borrow/2021-01-01/2021-03-31**
+
+![Alt text](resource/image/borrowGetDate.png "GET")
+
+**4.** New borrow: **POST: http://localhost/API_Library/borrow**
+
+> In the body of the json put the following structure.
+
+```json
     {
       "studentCode": 400,
       "bookCode": 105,
       "broughtDate": "2001-05-01",
       "takenDate": "2002-07-04"
     }
+ ```
+
+![Alt text](resource/image/borrowPost.png "POST")
+
+**5.** Update borrow: **PUT http://localhost/API_Library/borrow/100**
+
+> In the body of the json put the following structure.
+
+```json
+    {
+      "studentCode": 400,
+      "bookCode": 105,
+      "broughtDate": "2001-05-01",
+      "takenDate": "2002-07-04"
+    }
+ ```
+
+![Alt text](resource/image/borrowPut.png "put")
+
+**6.** Delete borrow: **DELETE : http://localhost/API_Library/borrow/100**
+
+![Alt text](resource/image/borrowDelete.png "delete")
+
+## Type 	💀 
+
+Type of books example: horror, suspense...
+
+**1.** Get types: **GET: http://localhost/API_Library/type**
+
+![Alt text](resource/image/typeGetAll.png "GET")
+
+**2.** Get types by id: **GET : http://localhost/API_Library/type/100**
+
+![Alt text](resource/image/typeId.png "GET")
+
+**3.** New type: **POST: http://localhost/API_Library/type**
 
 
-http://localhost/API_Library/borrow/2018-01-01/2020-08-01
+> In the body of the json put the following structure.
 
-
-
-http://localhost/API_Library/type/24
-
-http://localhost/API_Library/type/24
-
-type
-
+```json
 {
-      "name": "New register"
-  }
+  "name": "New book"
+}
+```
+
+![Alt text](resource/image/typePost.png "POST")
+
+**4.** Update type: **PUT http://localhost/API_Library/type/100**
+
+> In the body of the json put the following structure.
+
+```json
+{
+  "name": "New book"
+}
+```
+
+![Alt text](resource/image/typePut.png "put")
+
+**5.** Delete type: **DELETE : http://localhost/API_Library/type/100**
+
+![Alt text](resource/image/typeDelete.png "delete")

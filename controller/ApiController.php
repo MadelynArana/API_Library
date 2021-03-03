@@ -52,7 +52,7 @@
                         $book->getBook("delete");
                         $student->getStudent("delete");
                         $borrow->getBorrow("delete");
-                       // $borrow->getType("delete");
+                        $type->getType("delete");
 
                     break; 
 
