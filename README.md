@@ -11,13 +11,62 @@ The following HTTP request methods were used for this project.
 | DELETE/1    | Delete a record with ID 1.    |
 
 
-# Probar API 💜
+# API 💜
 
 To test the API you can use [Insomnia](https://insomnia.rest/download/), and configure the requests depending on the project path.
 
+
+## Borrow 	💀 
+
+**1.** Get borrows: **GET: http://localhost/API_Library/borrow**
+
+![Alt text](resource/image/borrowGetAll.png "GET")
+
+**2.** Get borrow by id: **GET : http://localhost/API_Library/borrow/100**
+
+![Alt text](resource/image/borrowId.png "GET")
+
+**3.** Get borrow by dates: **GET : http://localhost/API_Library/borrow/2021-01-01/2021-03-31**
+
+![Alt text](resource/image/borrowGetDate.png "GET")
+
+**4.** New borrow: **POST: http://localhost/API_Library/borrow**
+
+> In the body of the json put the following structure.
+
+```json
+    {
+      "studentCode": 400,
+      "bookCode": 105,
+      "broughtDate": "2001-05-01",
+      "takenDate": "2002-07-04"
+    }
+ ```
+
+![Alt text](resource/image/borrowPost.png "POST")
+
+**5.** Update borrow: **PUT http://localhost/API_Library/borrow/100**
+
+> In the body of the json put the following structure.
+
+```json
+    {
+      "studentCode": 400,
+      "bookCode": 105,
+      "broughtDate": "2001-05-01",
+      "takenDate": "2002-07-04"
+    }
+ ```
+
+![Alt text](resource/image/borrowPut.png "put")
+
+**6.** Delete borrow: **DELETE : http://localhost/API_Library/borrow/100**
+
+![Alt text](resource/image/borrowDelete.png "delete")
+
 ## Book 🌜 
 
-**1.** Get students: **GET: http://localhost/API_Library/book**
+**1.** Get books: **GET: http://localhost/API_Library/book**
 
 ![Alt text](resource/image/bookGetAll.png "GET")
 
@@ -149,53 +198,6 @@ To test the API you can use [Insomnia](https://insomnia.rest/download/), and con
 ![Alt text](resource/image/studentDelete.png "delete")
 
 
-## Borrow 	💀 
-
-**1.** Get borrows: **GET: http://localhost/API_Library/borrow**
-
-![Alt text](resource/image/borrowGetAll.png "GET")
-
-**2.** Get borrow by id: **GET : http://localhost/API_Library/borrow/100**
-
-![Alt text](resource/image/borrowId.png "GET")
-
-**3.** Get borrow by dates: **GET : http://localhost/API_Library/borrow/2021-01-01/2021-03-31**
-
-![Alt text](resource/image/borrowGetDate.png "GET")
-
-**4.** New borrow: **POST: http://localhost/API_Library/borrow**
-
-> In the body of the json put the following structure.
-
-```json
-    {
-      "studentCode": 400,
-      "bookCode": 105,
-      "broughtDate": "2001-05-01",
-      "takenDate": "2002-07-04"
-    }
- ```
-
-![Alt text](resource/image/borrowPost.png "POST")
-
-**5.** Update borrow: **PUT http://localhost/API_Library/borrow/100**
-
-> In the body of the json put the following structure.
-
-```json
-    {
-      "studentCode": 400,
-      "bookCode": 105,
-      "broughtDate": "2001-05-01",
-      "takenDate": "2002-07-04"
-    }
- ```
-
-![Alt text](resource/image/borrowPut.png "put")
-
-**6.** Delete borrow: **DELETE : http://localhost/API_Library/borrow/100**
-
-![Alt text](resource/image/borrowDelete.png "delete")
 
 ## Type 	💀 
 
@@ -216,7 +218,7 @@ Type of books example: horror, suspense...
 
 ```json
 {
-  "name": "New book"
+  "name": "New type"
 }
 ```
 
@@ -228,7 +230,7 @@ Type of books example: horror, suspense...
 
 ```json
 {
-  "name": "New book"
+  "name": "Update type"
 }
 ```
 
