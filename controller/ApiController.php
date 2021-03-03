@@ -10,7 +10,6 @@
 
     class ApiController extends Message
     {   
-
         public function API()
         {       
             $method = $_SERVER['REQUEST_METHOD'];  // Se obtiene el request 
