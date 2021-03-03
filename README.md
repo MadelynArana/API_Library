@@ -10,7 +10,6 @@ The following HTTP request methods were used for this project.
 | PUT/1       | Update a record with ID 1.  |
 | DELETE/1    | Delete a record with ID 1.    |
 
-
 # API 💜
 
 To test the API you can use [Insomnia](https://insomnia.rest/download/), and configure the requests depending on the project path.
