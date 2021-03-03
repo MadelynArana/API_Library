@@ -35,8 +35,8 @@
             $class->setCode       ( $row->id           );
             $class->setStudentCode( $row->student_id   );
             $class->setBookCode   ( $row->book_id      );
-            $class->setBroughtDate( $row->taken_date   );
-            $class->setTakenDate  ( $row->brought_date );
+            $class->setBroughtDate( $row->brought_date );
+            $class->setTakenDate  ( $row->taken_date   );
         }
         /** 
          * Obtiene información de la base de datos. 

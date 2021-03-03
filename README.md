@@ -110,3 +110,14 @@ localhost/API_Library/borrow
 
 http://localhost/API_Library/borrow/2018-01-01/2020-08-01
 
+
+
+http://localhost/API_Library/type/24
+
+http://localhost/API_Library/type/24
+
+type
+
+{
+      "name": "New register"
+  }

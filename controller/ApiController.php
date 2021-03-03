@@ -6,6 +6,7 @@
     require_once __DIR__."/BookController.php";
     require_once __DIR__."/StudentController.php";
     require_once __DIR__."/BorrowController.php";
+    require_once __DIR__."/TypeController.php";
 
     class ApiController extends Message
     {   
@@ -18,13 +19,16 @@
             $book    = new BookController();
             $student = new StudentController();
             $borrow  = new BorrowController();
+            $type    = new TypeController();
+        
             switch ( $method )
             { 
                 case 'GET': // Consulta.
                         $author ->getAuthor("get");
                         $book   ->getBook("get");
                         $student->getStudent("get");
-                        $borrow->getBorrow('get');
+                        $borrow->getBorrow("get");
+                        $type->getType("get");
                     break;     
 
                 case 'POST': // Inserta.
@@ -32,6 +36,7 @@
                         $book->getBook("save");
                         $student->getStudent("save");
                         $borrow->getBorrow("save");
+                        $type->getType("save");
                     break;
 
                 case 'PUT': // Actualiza.
@@ -39,6 +44,7 @@
                         $book->getBook("save");
                         $student->getStudent("save");
                         $borrow->getBorrow("save");
+                        $type->getType("save");
                     break;        
             
                 case 'DELETE': // Elimina.
@@ -46,6 +52,8 @@
                         $book->getBook("delete");
                         $student->getStudent("delete");
                         $borrow->getBorrow("delete");
+                       // $borrow->getType("delete");
+
                     break; 
 
                 default: // Método no soportado.

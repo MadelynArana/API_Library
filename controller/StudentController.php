@@ -52,7 +52,7 @@
                         break;
                         
                     default: 
-                        $this->response(400,"error","default book non-existing element");  
+                        $this->response(400,"error","default non-existing element");  
                         break;
                 }
             }

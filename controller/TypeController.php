@@ -1,15 +1,15 @@
 <?php
 
-    require_once __DIR__."/../model/AuthorModel.php";
+    require_once __DIR__."/../model/TypeModel.php";
     require_once __DIR__."/../model/core/response/Message.php";
 
-    class AuthorController extends Message
+    class TypeController extends Message
     {
-        public function getAuthor( $option )
+        public function getType( $option )
         {
-            if($_GET['action']=='author')
+            if($_GET['action']=='type')
             {
-                $database = new AuthorModel(); // Base de datos
+                $database = new TypeModel(); // Base de datos
 
                 switch( $option )
                 {
@@ -27,13 +27,12 @@
                             // Se obtienen los datos enviados en el cuerpo de la petición.  
                             $jsonObj = json_decode( file_get_contents('php://input') ); 
                             $name      = $jsonObj->name;
-                            $surname   = $jsonObj->surname;
 
                             if(isset($_GET['id'])){
-                                $database->update($_GET['id'], $name , $surname ); // Actualiza un registro.                  
+                                $database->update($_GET['id'], $name ); // Actualiza un registro.                  
                                 $this->response(200,"Success","Record was updated.");                         
                             }else{
-                                $database->insert(0, $name , $surname ); // Guarda un nuevo registro.
+                                $database->insert(0, $name ); // Guarda un nuevo registro.
                                 $this->response(200,"Success","New record added.");
                             }
                         break;
